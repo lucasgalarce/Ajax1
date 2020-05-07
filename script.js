@@ -11,9 +11,9 @@ function traer() {
             let datos = JSON.parse(this.responseText);
 
             // Asigno lso 4 datos para mostrar
-            document.getElementById('textDate').textContent = datos.date;
-            document.getElementById('textTitle').textContent = datos.title;
-            document.getElementById('textExplanation').textContent = datos.explanation;
+            document.getElementById('textDate').textContent += datos.date;
+            document.getElementById('textTitle').textContent += datos.title;
+            document.getElementById('textExplanation').textContent += datos.explanation;
             document.getElementById('picture').src = datos.hdurl;
 
             // Muestro el container con los datos que asigne
