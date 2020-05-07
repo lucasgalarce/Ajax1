@@ -1,15 +1,25 @@
-function traer(){
+function traer() {
     const xmlhttp = new XMLHttpRequest();
-    
-    xmlhttp.onreadystatechange = function(){
-        if(this.readyState == 4 && this.status == 200){
-            let datos = JSON.parse(this.responseText)
-            document.getElementById('parrafo').textContent += datos.date;
-            document.getElementById('parrafo2').textContent += datos.title;
-            document.getElementById('parrafo3').textContent += datos.explanation;
+    const btn = document.getElementById('btn');
+
+    xmlhttp.onreadystatechange = function () {
+
+        // Cuando volvio la respuesta evaluo que este ok
+        if (this.readyState == 4 && this.status == 200) {
+
+            // Parseo la informacion de respuesta
+            let datos = JSON.parse(this.responseText);
+
+            // Asigno lso 4 datos para mostrar
+            document.getElementById('textDate').textContent = datos.date;
+            document.getElementById('textTitle').textContent = datos.title;
+            document.getElementById('textExplanation').textContent = datos.explanation;
             document.getElementById('picture').src = datos.hdurl;
 
+            // Muestro el container con los datos que asigne
             document.getElementById('container').hidden = false;
+            // Escondo el boton
+            btn.hidden = true;
         }
     }
 
